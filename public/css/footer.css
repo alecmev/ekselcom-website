@@ -1,0 +1,83 @@
+#footer-shadow
+{
+	position: absolute;
+	bottom: 32px;
+    width: 100%;
+    height: 12px;
+    background-image: url('border-top.png');
+    overflow: hidden;
+}
+
+#footer-background
+{
+	position: absolute;
+	bottom: 0px;
+    width: 100%;
+    height: 32px;
+    background-image: url('menu-background.png');
+    overflow: hidden;
+}
+
+/*
+#header-logo-cell
+{
+    width: 226px;
+}
+
+#header-logo-link
+{
+    padding: 10px;
+    vertical-align: bottom;
+}
+
+#header-logo
+{
+    border: none;
+}
+
+#header-menu-container
+{
+    position: relative;
+    width: 100%;
+    height: 84px;
+}
+
+#header-menu-user-container
+{
+    height: 30px;
+    position: relative;
+}
+
+#header-menu-user
+{
+    position: absolute;
+    bottom: 0px;
+    right: 12px;
+    font-size: 16px;
+}
+
+.header-menu-user-item
+{
+    display: block; 
+    float: left;
+    padding-right: 20px;
+}
+
+#header-menu-navigation-container
+{
+    height: 54px;
+}
+
+#header-menu-navigation
+{
+    float: right;
+    font-size: 28px;
+}
+
+.header-menu-navigation-item
+{
+    display: block;
+    float: left;
+    padding-right: 20px;
+}
+*/

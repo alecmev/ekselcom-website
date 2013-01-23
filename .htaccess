@@ -1,0 +1,31 @@
+Options -MultiViews
+
+RewriteEngine on
+
+# RewriteCond %{REMOTE_ADDR} !^127\.0\.0\.1$
+# RewriteRule ^(.*)$ index.html [L]
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} /([^/]+)\.(css|js|png)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ http://%{HTTP_HOST}/badlink/ [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $1 !^$
+RewriteCond $1 !^index\.php
+RewriteCond $1 !(.*)/$
+RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?page=$1 [L]
+
+# RewriteRule /([^/]+)\.(php|css|js|png)$ http://%{HTTP_HOST}/$1.$2 [L]
+# RewriteCond $1 !\.(php|css|js|png)$
+# RewriteRule ^(.+)$ index.php?page=$1 [L]
+# RewriteRule ^$ http://%{HTTP_HOST}/news/1 [L,R=301]
+
+# RewriteRule ^(\w+)/(\w+)(.+)$ http://localhost/$1/$2 [L,R=301] # DOMAIN SENSITIVE
+# RewriteRule ^(\w+)/(.*)$ http://localhost/$1 [L,R=301] # DOMAIN SENSITIVE
+# RewriteRule ^(\w+)/(\w+)$ index.php?page=$1&param=$2 [L]
+# RewriteRule ^(\w+)/([\w.-]+)$ $2 [L]
+# RewriteRule ^(\w+)/?$ index.php?page=$1 [L]
