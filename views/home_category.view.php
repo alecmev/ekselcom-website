@@ -3,7 +3,7 @@
     <td class="content-left-title">
         <div style="position: relative">
             <?php echo $tmp['name']; ?><!--&nbsp;<a href="/news/one/<?php //echo $tmp['id'] ?>">⇢</a>-->
-            <div class="content-left-title-info">posted <?php echo $tmp['created_on']; ?></div>
+            <div class="content-left-title-info">posted <?php echo substr($tmp['created_on'], 0, -3); ?></div>
             <?php if (admin::$is_admin) { ?>
             <div style="display: block; font-size: 14px; color: #444444; position: absolute; top: 12px; right: 12px">
                 <div id="<?php echo $tmp['id']; ?>-dialog-name" style="display: none">
