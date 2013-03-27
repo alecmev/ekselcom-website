@@ -4,10 +4,9 @@
     {
         public static function database_connect()
         {
-            mysql_connect('localhost', 'root', 'YOU HAVE BEEN RICKROLLD, LOL');
+            mysql_connect('%SERVER%', '%USERNAME%', '%PASSWORD%');
             mysql_set_charset('utf8');
             mysql_select_db('development');
-            //mysql_select_db('production');
         }
         
         public static function parse_entry($entry)
