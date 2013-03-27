@@ -294,10 +294,10 @@
         public static $has_admin = false;
         
         public static function db($str) { return mysql_real_escape_string($str); }
-        public static function hsc($str) { return htmlspecialchars($str); } //, ENT_COMPAT, 'UTF-8', false
+        public static function hsc($str) { return htmlspecialchars($str); }
         public static function hscd($str) { return htmlspecialchars_decode($str); }
         public static function url($str) { return rawurlencode($str); }
-        public static function sha($str) { return hash_hmac('sha512', $str, '3DDA724D877F8D220F017C7002296BB8C1CFAFF1C75E63314D6BD2D1BAEAE794'); }
+        public static function sha($str) { return hash_hmac('sha512', $str.'%SALT%', '%KEY%'); }
         
         public static function bb($str, $is_content)
         {
