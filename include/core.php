@@ -378,27 +378,6 @@
             core::$has_admin = core::$has_admin || (isset($_POST['password']) && $_POST['password'] != '') || isset($_COOKIE['password']);
             if (core::$has_admin) admin::parse_request();
         }
-        
-        /*public static function check_email($str)
-        {
-            $tmp = db($str);
-            if ($str != $tmp) return 3;
-            $str = strtolower($tmp);
-            if (strlen($str) <= 256 && preg_match("/^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/", $str))
-            {
-                if (mysql_num_rows(mysql_query("SELECT * FROM users WHERE email = '".$str."'"))) return 1;
-                else return 0;
-            }
-            else return 2;
-        }*/
-        
-        /*public static function unserialize($meta, $fields)
-        {
-            $tmp_meta = unserialize(core::hscd($meta));
-            $tmp_result = array();
-            foreach ($fields as $tmp_field) if (isset($tmp_meta[$tmp_field])) $tmp_result[$tmp_field] = core::hscd($tmp_meta[$tmp_field]); else $tmp_result[$tmp_field] = '';
-            return $tmp_result;
-        }*/
     }
     
     class admin
@@ -411,14 +390,14 @@
         {
             if (isset($_POST['password']))
             {
-                if ($_POST['password'] == 'iamadmin')
+                if ($_POST['password'] == '%PASSWORD%')
                 {
                     setcookie('password', core::sha($_POST['password']), 0, '/');
                     admin::$is_admin = true;
                 }
                 else setcookie('password', '', 1, '/');
             }
-            else if (isset($_COOKIE['password']) && $_COOKIE['password'] == core::sha('iamadmin')) admin::$is_admin = true;
+            else if (isset($_COOKIE['password']) && $_COOKIE['password'] == core::sha('%PASSWORD%')) admin::$is_admin = true;
             
             if (core::$status == 200)
             {
